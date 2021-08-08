@@ -7,7 +7,7 @@
 
 ## 💡 문제
 문제 참고 : [tony9402/baekjoon-오늘의 문제](https://github.com/tony9402/baekjoon/blob/main/picked.md)
-<br>
+<br><br><br>
 
 ## 📌 규칙
 1. 스터디 전날(일, 수요일)까지 자신의 브랜치(깃 유저네임)에 소스코드를 올린다.
