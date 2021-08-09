@@ -18,6 +18,11 @@ public class Prob1469 {
 
         // permutation 이용
         permutation(nums, 0, N, N);
+        
+        if (!termi) {
+            System.out.println(-1);
+        }
+        
         sc.close();
     }
 
