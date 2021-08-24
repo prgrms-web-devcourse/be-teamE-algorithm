@@ -1,49 +1,33 @@
-import java.util.Arrays;
-
 public class PG42895 {
+    int n, target;
+    int answer = Integer.MAX_VALUE;
+
     public int solution(int N, int number) {
-        int dp[] = new int[number + 1];
-        int answer = 0;
+        n = N;
+        target = number;
 
-        Arrays.fill(dp, 9);
+        dfs(0, 0);
 
-        dp[1] = 2;
+        return (answer > 8 ? -1 : answer);
+    }
 
-        for (int i = 2; i <= number; i++) {
-            if (i == N)
-                dp[N] = 1;
-            // else if (i == 11)
-            //     dp[11] = 3;
-            // else if (i == 12 || i == 13)
-            //     dp[i] = 4;
-            else {
-                for (int j = 1; j <= i / 2; j++)
-                    dp[i] = Math.min(dp[i], dp[j] + dp[i - j]);
-            }
+    void dfs(int cur, int depth) {
+        if (depth > 8)
+            return;
+
+        if (target == cur) {
+            answer = Math.min(answer, depth);
+            return;
         }
 
-        answer = (dp[number] > 8 ? -1 : dp[number]);
-
-        return answer;
+        int nn = n;
+        for (int i = 1; i <= 8; i++) {
+            dfs(nn, depth + i);
+            dfs(cur + nn, depth + i);
+            dfs(cur - nn, depth + i);
+            dfs(cur * nn, depth + i);
+            dfs(cur / nn, depth + i);
+            nn = nn * 10 + n;
+        }
     }
 }
-/*
-N = 2, number = 13
-
-1   2   3   4   5   6   7   8   9   10
----------------------------------------
-2   1   3   2   4   3   5   4   6   5
-
-11  12  13
------------
-3   4   4
-
-11 : 22/2       (3)
-12 : (22+2)/2   (4)
-13 : (22+2+2)/2 (4)
-
-11 넘어가면서 22를 사용 
-for (int j = 1; j <= i / 2; j++)
-    dp[i] = Math.min(dp[i], dp[j] + dp[i - j]); -> 11부터 해당 X
-규칙(?) 어떻게 찾아야하는지 모르겠음...
-*/
