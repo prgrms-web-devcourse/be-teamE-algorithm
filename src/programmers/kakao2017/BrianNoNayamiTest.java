@@ -8,17 +8,17 @@ class BrianNoNayamiTest {
 	BrianNoNayami obj = new BrianNoNayami();
 
 	@Test
-	void solution() {
+	void test1() {
 		assertEquals("HELLO WORLD", obj.solution("HaEaLaLaObWORLDb"));
 	}
 
 	@Test
-	void solution2() {
+	void test2() {
 		assertEquals("SIGONG JOA", obj.solution("SpIpGpOpNpGJqOqA"));
 	}
 
 	@Test
-	void solution3() {
+	void test3() {
 		assertEquals("invalid", obj.solution("AxAxAxAoBoBoB"));
 	}
 
