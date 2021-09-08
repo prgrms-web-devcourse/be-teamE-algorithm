@@ -1,4 +1,4 @@
-package dp;
+package programmers.dp;
 
 import java.util.ArrayList;
 import java.util.HashSet;
